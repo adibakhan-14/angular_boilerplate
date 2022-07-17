@@ -1,0 +1,109 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+  <div
+    fxLayout="row wrap"
+    fxLayoutGap="10px"
+    fxFlex="100%"
+    fxFlex.sm="100%"
+    fxLayout.lt-sm="column"
+    fxFlex.xs="100%"
+    fxLayoutAlign="flex-start"
+  >
+    <span
+      fxFlex="0 1 calc(60% - 10px)"
+      fxFlex.lt-md="0 1 calc(100% - 10px)"
+      fxFlex.lt-sm="100%"
+      fxFlex.xs="100%"
+      appearance="fill"
+    >
+      <span fxLayout="column" fxLayout.xs="column" fxLayout.sm="column">
+        <h2 style="font-weight: bold;">
+          User Management System
+        </h2>
+        <span >Ensuring Secured Access</span>
+        <span >
+          <img src="../../assets/img/eralogo.png" style="width: 100%; height: 100%;" />
+        </span>
+      </span>
+    </span>
+    <span
+      fxFlex="0 1 calc(40% - 10px)"
+      fxFlex.lt-md="0 1 calc(100% - 10px)"
+      fxFlex.lt-sm="100%"
+      fxFlex.xs="100%"
+      appearance="fill"
+    >
+      <form
+        [id]="formId"
+        [formGroup]="form"
+        (ngSubmit)="onLogin(form.value)"
+        novalidate
+      >
+        <div fxLayout="column" fxLayout.xs="column" fxLayout.sm="column">
+          <div
+            fxLayout="column wrap"
+            fxLayoutGap="10px"
+            fxFlex="100%"
+            fxFlex.sm="100%"
+            fxLayout.lt-sm="column"
+            fxFlex.xs="100%"
+            fxLayoutAlign="flex-start"
+          >
+            <mat-form-field
+              fxFlex="0 1 calc(50% - 10px)"
+              fxFlex.lt-md="0 1 calc(100% - 10px)"
+              fxFlex.lt-sm="100%"
+              fxFlex.xs="100%"
+              appearance="fill"
+            >
+              <mat-label>User Name</mat-label>
+              <input
+                matInput
+                placeholder="User Name"
+                formControlName="userName"
+                required
+              />
+              <mat-error
+                *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+              >
+                <ng-container *ngIf="userName.hasError('required')"
+                  >User Name is required.</ng-container
+                >
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field
+              fxFlex="0 1 calc(50% - 10px)"
+              fxFlex.lt-md="0 1 calc(100% - 10px)"
+              fxFlex.lt-sm="100%"
+              fxFlex.xs="100%"
+              appearance="fill"
+            >
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                matInput
+                placeholder="Password"
+                formControlName="password"
+                required
+              />
+              <mat-error
+                *ngIf="password.invalid && (password.dirty || password.touched)"
+              >
+                <ng-container *ngIf="password.hasError('required')"
+                  >Password is required.</ng-container
+                >
+              </mat-error>
+            </mat-form-field>
+            <button
+              (click)="onLogin(form.value)"
+              [disabled]="asyncService.isLoading | async"
+              mat-raised-button
+              color="primary"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </span>
+  </div>
+</div>

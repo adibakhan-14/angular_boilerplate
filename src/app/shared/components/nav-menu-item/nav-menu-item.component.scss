@@ -1,0 +1,43 @@
+@import '../../../../assets/theme/ums-theme';
+// @import '../../../..//app/theme/styles/theme';
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+}
+
+:host .mat-list-item.active {
+  // background-color: #00aff0;
+  background-color: $primary;
+  color: #ffffff;
+}
+
+:host:hover>.mat-list-item:not(.expanded),
+:host:focus>.mat-list-item:not(.expanded) {
+  background-color: $primary !important;
+  // background-color: #00aff0 !important;
+  color: #ffffff;
+}
+
+.mat-list-item {
+  padding: 3px 0;
+  font-size: 14px;
+  display: flex;
+  width: auto;
+}
+
+.mat-list-item .routeIcon {
+  margin-right: 40px;
+}
+
+.mat-list-item-content {
+  flex: 1 1 100% !important;
+}
+
+
+.ppp:hover {
+  background-color: $primary !important;
+  // background-color: #00aff0 !important;
+  color: #ffffff;
+}
